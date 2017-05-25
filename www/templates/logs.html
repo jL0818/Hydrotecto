@@ -1,0 +1,40 @@
+<ion-view title="Logs" id="page9">
+   <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+        </ion-nav-back-button>
+
+          <ion-nav-buttons side="left">
+              <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+          </ion-nav-buttons>
+
+          <ion-nav-buttons side="right">
+               <button class="button button-icon icon ion-ios-minus-outline icon-right" ng-click="data.showDelete = !data.showDelete; data.showReorder = true"></button>
+          </ion-nav-buttons>
+       </ion-nav-bar>
+
+  <body ng-controller="logsCtrl">
+     <ion-content>
+        <label class = "item item-input">
+          <i class = "icon ion-ios-search placeholder-icon"></i>
+            <input type="text" placeholder="Search Result" ng-model = "search" name="search"></label>
+          <ion-list show-delete="data.showDelete">
+        <ion-item ng-repeat = "item in items | filter: search">
+     <div class="item item-divider titlelog" style="margin-left: 30px;">
+  <h2 style="text-align:center;"><b>Monitor Result</b></h2></div>
+
+<center>
+          <div class="item item-text-wrap" style="margin-left: 30px;">
+          <strong>Result: {{item.id}}</strong>
+          <div class="timelog"> Time: {{date | date:' h:mm a'}}</div>
+          <div  class="datelog">Date: {{date | date:' EEE, MMM d'}}</div>
+          </div>
+          </div>
+</center>
+
+            <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)"></ion-delete-button>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </body>
+  </div>
+</ion-view>
